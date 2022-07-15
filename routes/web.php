@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::get('datamaster/penduduk/tambah', 'create')->name('penduduk.create');
         // Route::get('datamaster/penduduk/edit/{id}', 'edit')->name('penduduk.edit');
         // Route::post('datamaster/penduduk/simpan', 'store');
-        // Route::delete('datamaster/penduduk/destroy/{id}', 'destroy');
+        Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
         // Route::get('datamaster/penduduk/show/{nik}', 'show')->name('penduduk.show');
         // Route::get('datamaster/penduduk/export/{format}', 'export')->name('penduduk.export');
     });

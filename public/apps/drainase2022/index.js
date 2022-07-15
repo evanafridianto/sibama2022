@@ -68,47 +68,46 @@ function reloadTable() {
 
 // destroy
 function destroy(id) {
-    cuteAlert({
-        type: "question",
-        title: "Anda yakin?",
-        message: "Data akan dihapus permanen!",
-        confirmText: "Hapus",
-        cancelText: "Batal",
-    }).then((e) => {
-        if (e == "confirm") {
-            $.ajaxSetup({
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                        "content"
-                    ),
-                },
-            });
-            $.ajax({
-                url: "/admin/datamaster/datang/destroy/" + id,
-                type: "DELETE",
-                dataType: "JSON",
-                success: function(data) {
-                    if (data.status) {
-                        cuteToast({
-                            title: "Success",
-                            type: "success", // or 'info', 'error', 'warning'
-                            message: "Data berhasil dihapus!",
-                            timer: 2000,
-                        });
-                        reloadTable();
-                    }
-                },
-                error: function(response) {
-                    cuteToast({
-                        title: "Error",
-                        type: "error", // or 'info', 'error', 'warning'
-                        message: "Terjadi kesalahan!",
-                        timer: 1000,
-                    }).then(() => {
-                        location.reload();
-                    });
-                },
-            });
-        }
-    });
+    alertify
+        .confirm(
+            "Konfirmasi!",
+            "Anda yakin ingin menhapus data ini?",
+            function() {
+                $.ajaxSetup({
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                });
+
+                $.ajax({
+                    url: "/datamaster/drainase2022/destroy/" + id,
+                    type: "DELETE",
+                    dataType: "JSON",
+                    success: function(data) {
+                        if (data.status) {
+                            alertify.notify(
+                                "Data berhasil dihapus!",
+                                "success",
+                                3
+                            );
+                            reloadTable();
+                        }
+                    },
+                    error: function(response) {
+                        alertify.notify(
+                            "Terjadi kesalahan!",
+                            "error",
+                            3,
+                            function() {
+                                location.reload();
+                            }
+                        );
+                    },
+                });
+            },
+            function() {}
+        )
+        .set("labels", { ok: "Hapus", cancel: "Batal" });
 }

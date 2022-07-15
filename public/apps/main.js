@@ -64,3 +64,4 @@ function loader() {
 alertify.defaults.transition = "pulse";
 alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
+alertify.set("notifier", "position", "top-right");
