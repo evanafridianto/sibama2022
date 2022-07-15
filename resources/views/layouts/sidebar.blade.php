@@ -18,8 +18,14 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="all-professors.html">Drainase 2020-2021</a></li>
-                    <li><a href="add-professor.html">Drainase 2022</a></li>
+                    <li><a href="{{ route('drainase2022.index') }}">Drainase 2022</a></li>
                 </ul>
+            </li>
+
+            <li><a class="ai-icon" href="event-management.html" aria-expanded="false">
+                    <i class="la la-wrench"></i>
+                    <span class="nav-text">Setting R24</span>
+                </a>
             </li>
 
             <li class="nav-label">Admin</li>

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Drainase2022;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Drainase2022::factory(50)->create();
     }
 }

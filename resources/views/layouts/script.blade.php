@@ -6,6 +6,9 @@
 
  <script src="{{ asset('admin/vendor/alertifyjs/alertify.js') }}"></script>
  <script src="{{ asset('admin/vendor/waitMe/waitMe.js') }}"></script>
+ <!-- Datatable -->
+ <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+ <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>
 
  <!-- Chart ChartJS plugin files -->
  <script src="{{ asset('admin/vendor/chart.js/Chart.bundle.min.js') }}"></script>
