@@ -9,7 +9,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('sibama.ico') }}">
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('admin/vendor/waitMe/waitMe.css') }}">
 </head>
 
 <body class="h-100">
@@ -73,8 +73,9 @@
     <!-- Required vendors -->
     <script src="{{ asset('admin/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-    {{-- <script src="{{ asset('admin/js/custom.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/js/dlabnav-init.js') }}"></script> --}}
+    <script src="{{ asset('admin/vendor/waitMe/waitMe.js') }}"></script>
+    <script src="{{ asset('apps/loader.js') }}"></script>
+    <script src="{{ asset('apps/main.js') }}"></script>
 
 </body>
 
