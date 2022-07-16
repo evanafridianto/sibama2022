@@ -6,6 +6,7 @@
 
  <script src="{{ asset('admin/vendor/alertifyjs/alertify.js') }}"></script>
  <script src="{{ asset('admin/vendor/waitMe/waitMe.js') }}"></script>
+ <script src="{{ asset('admin/vendor/leaflet/leaflet.js') }}"></script>
  <!-- Datatable -->
  <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
  <script src="{{ asset('admin/js/plugins-init/datatables.init.js') }}"></script>

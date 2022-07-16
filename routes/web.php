@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\R24Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
@@ -24,6 +25,9 @@ Route::get('/', [AuthenticatedSessionController::class, 'create']);
 Route::group(['middleware' => ['auth']], function () {
     // dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // map
+    Route::get('/peta', [MapController::class, 'index'])->name('map');
 
     // drainase2022
     Route::controller(Drainase2022Controller::class)->group(function () {

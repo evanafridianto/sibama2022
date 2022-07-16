@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="{{ asset('admin/vendor/alertifyjs/css/alertify.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendor/waitMe/waitMe.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/vendor/leaflet/leaflet.css') }}">
 
     <!-- Datatable -->
     <link href="{{ asset('admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">

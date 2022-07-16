@@ -7,7 +7,7 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            <li><a class="ai-icon" href="event-management.html" aria-expanded="false">
+            <li><a class="ai-icon" href="{{ route('map') }}" aria-expanded="false">
                     <i class="la la-map-marker"></i>
                     <span class="nav-text">Peta Drainase</span>
                 </a>
