@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\R24Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Drainase2022Controller;
@@ -48,6 +49,12 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Route::get('datamaster/penduduk/show/{nik}', 'show')->name('penduduk.show');
         // Route::get('datamaster/penduduk/export/{format}', 'export')->name('penduduk.export');
+    });
+
+    // r24
+    Route::controller(R24Controller::class)->group(function () {
+        Route::get('r24/edit/{id}', 'edit')->name('r24.edit');
+        Route::post('r24/store', 'store');
     });
 
     // user

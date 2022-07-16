@@ -23,7 +23,7 @@
                 </ul>
             </li>
             {{-- class="{{ Request::is('datamaster/drainase2022*') ? 'active' : '' }}" --}}
-            <li><a class="ai-icon" href="event-management.html" aria-expanded="false">
+            <li><a class="ai-icon" href="{{ route('r24.edit', 1) }}" aria-expanded="false">
                     <i class="la la-wrench"></i>
                     <span class="nav-text">Setting R24</span>
                 </a>

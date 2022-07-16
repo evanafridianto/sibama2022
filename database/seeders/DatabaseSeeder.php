@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\R24;
 use App\Models\Drainase2022;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         Drainase2022::factory(50)->create();
+        R24::factory(1)->create();
     }
 }
