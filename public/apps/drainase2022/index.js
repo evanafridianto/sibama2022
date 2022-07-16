@@ -71,7 +71,7 @@ function destroy(id) {
     alertify
         .confirm(
             "Konfirmasi!",
-            "Anda yakin ingin menhapus data ini?",
+            "Anda yakin ingin menghapus data ini?",
             function() {
                 $.ajaxSetup({
                     headers: {
@@ -90,7 +90,7 @@ function destroy(id) {
                             alertify.notify(
                                 "Data berhasil dihapus!",
                                 "success",
-                                3
+                                2
                             );
                             reloadTable();
                         }
@@ -99,7 +99,7 @@ function destroy(id) {
                         alertify.notify(
                             "Terjadi kesalahan!",
                             "error",
-                            3,
+                            2,
                             function() {
                                 location.reload();
                             }

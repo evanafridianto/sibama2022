@@ -20,7 +20,7 @@
                    <div class="col-12">
                        <div class="card">
                            <div class="card-header">
-                               <a href="" class="btn btn-primary">Tambah Baru</a>
+                               <a href="{{ route('drainase2022.create') }}" class="btn btn-primary">Tambah Baru</a>
                            </div>
                            <div class="card-body">
                                <div class="table-responsive">

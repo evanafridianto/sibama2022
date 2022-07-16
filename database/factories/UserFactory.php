@@ -18,9 +18,12 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $firstName = $this->faker->firstName;
+        $lastName = $this->faker->lastName;
         return [
-            'name' => fake()->name(),
+            'name' => $firstName . ' ' . $lastName,
             'email' => 'evan@gmail.com',
+            'username' => $firstName . $lastName,
             // 'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make(12345678), // password

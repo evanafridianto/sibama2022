@@ -32,6 +32,12 @@ class Drainase2022Controller extends Controller
     }
 
 
+    public function create()
+    {
+        $title = 'Tambah Data';
+        return view('pages.drainase2022.form', compact('title'));
+    }
+
     public function destroy($id)
     {
         Drainase2022::destroy($id);

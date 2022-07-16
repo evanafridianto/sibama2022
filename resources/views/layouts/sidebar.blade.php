@@ -19,9 +19,10 @@
                 <ul aria-expanded="false">
                     <li><a href="all-professors.html">Drainase 2020-2021</a></li>
                     <li><a href="{{ route('drainase2022.index') }}">Drainase 2022</a></li>
+                    <li><a href="{{ route('genangan.index') }}">Titik Genangan</a></li>
                 </ul>
             </li>
-
+            {{-- class="{{ Request::is('datamaster/drainase2022*') ? 'active' : '' }}" --}}
             <li><a class="ai-icon" href="event-management.html" aria-expanded="false">
                     <i class="la la-wrench"></i>
                     <span class="nav-text">Setting R24</span>
@@ -29,7 +30,7 @@
             </li>
 
             <li class="nav-label">Admin</li>
-            <li><a class="ai-icon" href="event-management.html" aria-expanded="false">
+            <li><a class="ai-icon" href="{{ route('profile.edit', Auth::user()->username) }}" aria-expanded="false">
                     <i class="la la-user"></i>
                     <span class="nav-text">Profil</span>
                 </a>
