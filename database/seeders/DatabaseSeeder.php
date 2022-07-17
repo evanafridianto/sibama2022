@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\R24;
 use App\Models\Drainase2022;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
@@ -22,7 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Drainase2022::factory(50)->create();
+
+        $sql1 = file_get_contents(public_path('drainase2020.sql'));
+        $sql2 = file_get_contents(public_path('drainase2022.sql'));
+
+        DB::unprepared($sql1);
+        DB::unprepared($sql2);
+        // Drainase2022::factory(50)->create();
         R24::factory(1)->create();
     }
 }

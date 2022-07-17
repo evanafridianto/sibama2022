@@ -25,12 +25,12 @@
                                        <div class="form-row">
                                            <div class="col-md-12 col-sm-12">
                                                <div class="form-group">
-                                                   <label>Curah Hujan</label>
+                                                   <label>Curah Hujan (mm)</label>
                                                    <input type="hidden" class="form-control"
                                                        value="{{ Route::is('r24.edit') ? $r24->id : '' }}" name="id">
                                                    <input type="text" class="form-control"
                                                        value="{{ Route::is('r24.edit') ? $r24->curah_hujan : '' }}"
-                                                       name="curah_hujan" placeholder="Curah Hujan">
+                                                       name="curah_hujan" placeholder="Curah Hujan (mm)">
                                                    <small class="text-danger"></small>
                                                </div>
                                            </div>

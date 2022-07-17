@@ -28,16 +28,18 @@ Route::group(['middleware' => ['auth']], function () {
 
     // map
     Route::get('/peta', [MapController::class, 'index'])->name('map');
+    Route::get('/peta/drainase/{tahun}', [MapController::class, 'drainase']);
 
     // drainase2022
     Route::controller(Drainase2022Controller::class)->group(function () {
         Route::get('datamaster/drainase2022', 'index')->name('drainase2022.index');
         Route::get('datamaster/drainase2022/create', 'create')->name('drainase2022.create');
         // Route::get('datamaster/penduduk/edit/{id}', 'edit')->name('penduduk.edit');
-        // Route::post('datamaster/penduduk/simpan', 'store');
+        Route::post('datamaster/drainase2022/store', 'store');
         Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
-        // Route::get('datamaster/penduduk/show/{nik}', 'show')->name('penduduk.show');
-        // Route::get('datamaster/penduduk/export/{format}', 'export')->name('penduduk.export');
+
+        Route::get('datamaster/drainase2022/export', 'export')->name('drainase2022.export');
+        Route::post('datamaster/drainase2022/import', 'import');
     });
 
     // genangan

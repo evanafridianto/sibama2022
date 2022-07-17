@@ -12,14 +12,17 @@
                     <span class="nav-text">Peta Drainase</span>
                 </a>
             </li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+            <li class="{{ Request::is('datamaster/*') ? 'mm-active' : '' }}"><a class="has-arrow"
+                    href="javascript:void()" aria-expanded="false">
                     <i class="la la-server"></i>
                     <span class="nav-text">Data Master</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="all-professors.html">Drainase 2020-2021</a></li>
-                    <li><a href="{{ route('drainase2022.index') }}">Drainase 2022</a></li>
-                    <li><a href="{{ route('genangan.index') }}">Titik Genangan</a></li>
+                    <li><a class="{{ Request::is('datamaster/drainase2022/*') ? 'mm-active' : '' }}"
+                            href="{{ route('drainase2022.index') }}">Drainase 2022</a></li>
+                    <li><a class="{{ Request::is('datamaster/genangan/*') ? 'mm-active' : '' }}"
+                            href="{{ route('genangan.index') }}">Titik Genangan</a></li>
                 </ul>
             </li>
             {{-- class="{{ Request::is('datamaster/drainase2022*') ? 'active' : '' }}" --}}

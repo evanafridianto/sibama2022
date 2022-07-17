@@ -1,3 +1,13 @@
+$(function() {
+    $("input, select, textarea").bind("keyup change input click", function() {
+        if ($(this).next().is("small")) {
+            $(this).next(".text-danger").empty();
+        } else {
+            $(this).parent().next(".text-danger").empty();
+        }
+    });
+});
+
 function logout() {
     alertify
         .confirm(
@@ -52,7 +62,7 @@ function loader() {
                 onClose: function() {},
             });
         },
-        success: function(data) {
+        complete: function(data) {
             $("body").waitMe("hide");
         },
         error: function(response) {

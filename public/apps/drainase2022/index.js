@@ -111,3 +111,87 @@ function destroy(id) {
         )
         .set("labels", { ok: "Hapus", cancel: "Batal" });
 }
+
+function importXlsx() {
+    alertify.genericDialog ||
+        alertify.dialog("genericDialog", function() {
+            return {
+                main: function(content) {
+                    this.setContent(content);
+                },
+                setup: function() {
+                    return {
+                        focus: {
+                            element: function() {
+                                return this.elements.body.querySelector(
+                                    this.get("selector")
+                                );
+                            },
+                            select: true,
+                        },
+                        options: {
+                            basic: true,
+                            maximizable: false,
+                            resizable: false,
+                            padding: true,
+                        },
+                    };
+                },
+                settings: {
+                    selector: undefined,
+                },
+            };
+        });
+    //force focusing password box
+    alertify
+        .genericDialog(
+            '<form id="import-form"><div class="form-row"><div class="col-md-12 col-sm-12"><div class="form-group"><label>Upload File</label><input type="file" class="form-control" name="file_xlsx"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /><small class="text-danger"></small></div></div></div><div class="btn-list"><button type="submit" class="btn btn-primary">Submit</button></div></form>'
+        )
+        .set("selector", 'input[type="file"]');
+
+    $("#import-form").submit(function(e) {
+        loader();
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        var formData = new FormData($(this)[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "/datamaster/drainase2022/import",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: "JSON",
+            success: function(data) {
+                if (data.status) {
+                    $(".alertify").remove();
+                    reloadTable();
+
+                    alertify.notify(
+                        "Data berhasil diimpor!",
+                        "success",
+                        2,
+                        function() {
+                            location.reload();
+                        }
+                    );
+                } else {
+                    $.each(data.error, function(key, value) {
+                        $('[name="' + key + '"]')
+                            .next()
+                            .text(value);
+                    });
+                }
+            },
+            error: function(response) {
+                alertify.notify("Terjadi kesalahan!", "error", 2, function() {
+                    location.reload();
+                });
+            },
+        });
+        e.preventDefault();
+    });
+}

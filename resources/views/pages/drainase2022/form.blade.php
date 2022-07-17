@@ -21,62 +21,73 @@
                <div class="row">
                    <div class="col-12">
                        <div class="card">
-                           <div class="card-header">
-                               <h4 class="card-title">Drainase 2022 Form</h4>
-                           </div>
                            <div class="card-body">
                                <div class="basic-form">
-                                   <form>
+                                   <form id="drainase2022-form">
                                        <div class="form-row">
-                                           <div class="col-md-6 col-sm-12">
-                                               <div class="form-group">
-                                                   <label>Kode Saluran</label>
-                                                   <input type="text" class="form-control" placeholder="Kode Saluran">
-                                               </div>
-                                           </div>
-                                           <div class="col-md-6 col-sm-12">
-                                               <div class="form-group">
-                                                   <label>Nama Jalan</label>
-                                                   <input type="text" class="form-control" placeholder="Nama Jalan">
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <div class="form-row">
-                                           <div class="col-md-6 col-sm-12">
-                                               <div class="form-group">
-                                                   <label>Kelurahan</label>
-                                                   <select class="form-control">
-                                                       <option value="">Pilih Kelurahan</option>
-                                                       <option>Option 1</option>
-                                                       <option>Option 2</option>
-                                                       <option>Option 3</option>
-                                                   </select>
-                                               </div>
-                                           </div>
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Kecamatan</label>
-                                                   <select class="form-control">
+                                                   <input type="hidden" name="id" value="" class="form-control">
+                                                   <select class="form-control" name="kecamatan">
                                                        <option value="">Pilih Kecamatan</option>
-                                                       <option>Option 1</option>
-                                                       <option>Option 2</option>
-                                                       <option>Option 3</option>
+                                                       @foreach ($kecamatan as $item)
+                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                       @endforeach
                                                    </select>
+                                                   <small class="text-danger"></small>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-12">
+                                               <div class="form-group">
+                                                   <label>Kelurahan</label>
+                                                   <select class="form-control" name="kelurahan">
+                                                       <option value="">Pilih Kelurahan</option>
+                                                       @foreach ($kelurahan as $item)
+                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                       @endforeach
+                                                   </select>
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                        </div>
                                        <div class="form-row">
-
+                                           <div class="col-md-6 col-sm-12">
+                                               <div class="form-group">
+                                                   <label>Nama Jalan</label>
+                                                   <select class="form-control" name="nama_jalan">
+                                                       <option value="">Pilih Jalan</option>
+                                                       @foreach ($jalan as $item)
+                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                       @endforeach
+                                                   </select>
+                                                   <small class="text-danger"></small>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-12">
+                                               <div class="form-group">
+                                                   <label>Kode Saluran</label>
+                                                   <input type="text" class="form-control" name="kode_saluran"
+                                                       placeholder="Kode Saluran">
+                                                   <small class="text-danger"></small>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="form-row">
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Panjang</label>
-                                                   <input type="text" class="form-control" placeholder="Panjang">
+                                                   <input type="text" class="form-control" name="panjang"
+                                                       placeholder="Panjang">
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Tinggi</label>
-                                                   <input type="text" class="form-control" placeholder="Tinggi">
+                                                   <input type="text" class="form-control" name="tinggi"
+                                                       placeholder="Tinggi">
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                        </div>
@@ -84,13 +95,17 @@
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Lebar Atas</label>
-                                                   <input type="text" class="form-control" placeholder="Lebar Atas">
+                                                   <input type="text" class="form-control" name="lebar_atas"
+                                                       placeholder="Lebar Atas">
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Lebar Bawah</label>
-                                                   <input type="text" class="form-control" placeholder="Lebar Bawah">
+                                                   <input type="text" class="form-control" name="lebar_bawah"
+                                                       placeholder="Lebar Bawah">
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                        </div>
@@ -98,33 +113,69 @@
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Arah Aliran</label>
-                                                   <input type="text" class="form-control" placeholder="Arah Aliran">
+                                                   <select class="form-control" name="arah">
+                                                       <option value="">Pilih Arah Aliran</option>
+                                                       <option value="Timur">Timur</option>
+                                                       <option value="Barat">Barat</option>
+                                                       <option value="Selatan">Selatan</option>
+                                                       <option value="Utara">Utara</option>
+                                                   </select>
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Tipe</label>
-                                                   <input type="text" class="form-control" placeholder="Tipe">
+                                                   <select class="form-control" name="tipe">
+                                                       <option value="">Pilih Tipe</option>
+                                                       <option value="Terbuka">Terbuka</option>
+                                                       <option value="Tertutup">Tertutup</option>
+                                                   </select>
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                        </div>
                                        <div class="form-row">
-                                           <div class="col-md-4 col-sm-12">
+                                           <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Kondisi Fisik</label>
-                                                   <input type="text" class="form-control" placeholder="Kondisi Fisik">
+                                                   <select class="form-control" name="kondisi_fisik">
+                                                       <option value="">Pilih Kondisi Fisik</option>
+                                                       @foreach ($fisik as $item)
+                                                           <option value="{{ $item->nama }}">{{ $item->nama }}
+                                                           </option>
+                                                       @endforeach
+                                                   </select>
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
-                                           <div class="col-md-4 col-sm-12">
+                                           <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Sisi Jalan</label>
-                                                   <input type="text" class="form-control" placeholder="Sisi Jalan">
+                                                   <select class="form-control" name="sisi">
+                                                       <option value="">Pilih Sisi Jalan</option>
+                                                       <option value="Kanan">Kanan</option>
+                                                       <option value="Kiri">Kiri</option>
+                                                   </select>
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
-                                           <div class="col-md-4 col-sm-12">
+                                       </div>
+                                       <div class="form-row">
+                                           <div class="col-md-6 col-sm-12">
+                                               <div class="form-group">
+                                                   <label>File KMZ</label>
+                                                   <input type="file" name="file_kmz" class="form-control"
+                                                       accept=".kmz" />
+                                                   <small class="text-danger"></small>
+                                               </div>
+                                           </div>
+                                           <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Foto</label>
-                                                   <input type="file" class="form-control">
+                                                   <input type="file" name="foto" class="form-control"
+                                                       accept="image/*" />
+                                                   <small class="text-danger"></small>
                                                </div>
                                            </div>
                                        </div>
@@ -140,4 +191,5 @@
                </div>
            </div>
        </div>
+       <script src="{{ asset('apps/drainase2022/form.js') }}"></script>
    @endsection

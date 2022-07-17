@@ -27,7 +27,8 @@ return new class extends Migration
             $table->string('arah');
             $table->string('tipe');
             $table->string('kondisi_fisik');
-            $table->string('foto');
+            $table->string('foto')->nullable();
+            $table->string('file_kmz')->nullable();
             $table->timestamps();
         });
     }
