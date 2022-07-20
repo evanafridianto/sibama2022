@@ -42,15 +42,18 @@ $(function() {
                         }
                     });
                 }
-                console.log(data);
             },
             error: function(err) {
-                console.log(err);
                 alertify.notify("Terjadi kesalahan!", "error", 2, function() {
                     location.reload();
                 });
             },
         });
         e.preventDefault();
+    });
+
+    $('[name="foto"]').change(function() {
+        readURL(this);
+        // console.log("hahah");
     });
 });

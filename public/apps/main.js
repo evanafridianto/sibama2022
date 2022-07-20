@@ -49,7 +49,7 @@ function logout() {
 function loader() {
     $.ajax({
         beforeSend: function() {
-            $("body").waitMe({
+            $("#content-body").waitMe({
                 effect: "roundBounce",
                 text: "<span class='text-secondary'>Loading...</span>",
                 bg: "rgba(255,255,255,0.7)",
@@ -63,10 +63,10 @@ function loader() {
             });
         },
         complete: function(data) {
-            $("body").waitMe("hide");
+            $("#content-body").waitMe("hide");
         },
         error: function(response) {
-            $("body").waitMe("hide");
+            $("#content-body").waitMe("hide");
         },
     });
 }
@@ -75,3 +75,16 @@ alertify.defaults.transition = "pulse";
 alertify.defaults.theme.ok = "btn btn-primary";
 alertify.defaults.theme.cancel = "btn btn-danger";
 alertify.set("notifier", "position", "top-right");
+
+// img preview
+function readURL(input) {
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files[i]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("#img-preview").find("img").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+}

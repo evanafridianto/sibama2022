@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::controller(Drainase2022Controller::class)->group(function () {
         Route::get('datamaster/drainase2022', 'index')->name('drainase2022.index');
         Route::get('datamaster/drainase2022/create', 'create')->name('drainase2022.create');
-        // Route::get('datamaster/penduduk/edit/{id}', 'edit')->name('penduduk.edit');
+        Route::get('datamaster/drainase2022/edit/{id}', 'edit')->name('drainase2022.edit');
         Route::post('datamaster/drainase2022/store', 'store');
         Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
 

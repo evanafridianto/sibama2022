@@ -1,5 +1,5 @@
 $(window).bind("beforeunload", function() {
-    $("body").waitMe({
+    $("#content-body").waitMe({
         effect: "roundBounce",
         text: "<span class='text-secondary'>Loading...</span>",
         bg: "rgba(255,255,255,0.7)",

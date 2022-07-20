@@ -28,11 +28,15 @@
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Kecamatan</label>
-                                                   <input type="hidden" name="id" value="" class="form-control">
+                                                   <input type="hidden" name="id"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->id : '' }}"
+                                                       class="form-control">
                                                    <select class="form-control" name="kecamatan">
                                                        <option value="">Pilih Kecamatan</option>
                                                        @foreach ($kecamatan as $item)
-                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                           <option
+                                                               {{ Route::is('drainase2022.edit') && $drainase2022->kecamatan == strtoupper($item->nama) ? 'selected' : '' }}
+                                                               value="{{ $item->nama }}">{{ $item->nama }}</option>
                                                        @endforeach
                                                    </select>
                                                    <small class="text-danger"></small>
@@ -44,7 +48,9 @@
                                                    <select class="form-control" name="kelurahan">
                                                        <option value="">Pilih Kelurahan</option>
                                                        @foreach ($kelurahan as $item)
-                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                           <option
+                                                               {{ Route::is('drainase2022.edit') && $drainase2022->kelurahan == strtoupper($item->nama) ? 'selected' : '' }}
+                                                               value="{{ $item->nama }}">{{ $item->nama }}</option>
                                                        @endforeach
                                                    </select>
                                                    <small class="text-danger"></small>
@@ -55,12 +61,18 @@
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>Nama Jalan</label>
-                                                   <select class="form-control" name="nama_jalan">
+                                                   <input type="text" class="form-control" name="nama_jalan"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->nama_jalan : '' }}"
+                                                       placeholder="Kode Saluran">
+                                                   {{-- <select class="form-control" name="nama_jalan">
                                                        <option value="">Pilih Jalan</option>
                                                        @foreach ($jalan as $item)
-                                                           <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                                           <option
+                                                               {{ Route::is('drainase2022.edit') && $drainase2022->nama_jalan == strtoupper($item->nama) ? 'selected' : '' }}
+                                                               value="{{ $item->nama }}">{{ $item->nama }}
+                                                           </option>
                                                        @endforeach
-                                                   </select>
+                                                   </select> --}}
                                                    <small class="text-danger"></small>
                                                </div>
                                            </div>
@@ -68,6 +80,7 @@
                                                <div class="form-group">
                                                    <label>Kode Saluran</label>
                                                    <input type="text" class="form-control" name="kode_saluran"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->kode_saluran : '' }}"
                                                        placeholder="Kode Saluran">
                                                    <small class="text-danger"></small>
                                                </div>
@@ -78,6 +91,7 @@
                                                <div class="form-group">
                                                    <label>Panjang</label>
                                                    <input type="text" class="form-control" name="panjang"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->panjang : '' }}"
                                                        placeholder="Panjang">
                                                    <small class="text-danger"></small>
                                                </div>
@@ -86,6 +100,7 @@
                                                <div class="form-group">
                                                    <label>Tinggi</label>
                                                    <input type="text" class="form-control" name="tinggi"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->tinggi : '' }}"
                                                        placeholder="Tinggi">
                                                    <small class="text-danger"></small>
                                                </div>
@@ -96,6 +111,7 @@
                                                <div class="form-group">
                                                    <label>Lebar Atas</label>
                                                    <input type="text" class="form-control" name="lebar_atas"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->lebar_atas : '' }}"
                                                        placeholder="Lebar Atas">
                                                    <small class="text-danger"></small>
                                                </div>
@@ -104,6 +120,7 @@
                                                <div class="form-group">
                                                    <label>Lebar Bawah</label>
                                                    <input type="text" class="form-control" name="lebar_bawah"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->lebar_bawah : '' }}"
                                                        placeholder="Lebar Bawah">
                                                    <small class="text-danger"></small>
                                                </div>
@@ -115,10 +132,18 @@
                                                    <label>Arah Aliran</label>
                                                    <select class="form-control" name="arah">
                                                        <option value="">Pilih Arah Aliran</option>
-                                                       <option value="Timur">Timur</option>
-                                                       <option value="Barat">Barat</option>
-                                                       <option value="Selatan">Selatan</option>
-                                                       <option value="Utara">Utara</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->arah == strtoupper('Timur') ? 'selected' : '' }}
+                                                           value="Timur">Timur</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->arah == strtoupper('Barat') ? 'selected' : '' }}
+                                                           value="Barat">Barat</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->arah == strtoupper('Selatan') ? 'selected' : '' }}
+                                                           value="Selatan">Selatan</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->arah == strtoupper('Utara') ? 'selected' : '' }}
+                                                           value="Utara">Utara</option>
                                                    </select>
                                                    <small class="text-danger"></small>
                                                </div>
@@ -128,8 +153,12 @@
                                                    <label>Tipe</label>
                                                    <select class="form-control" name="tipe">
                                                        <option value="">Pilih Tipe</option>
-                                                       <option value="Terbuka">Terbuka</option>
-                                                       <option value="Tertutup">Tertutup</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->tipe == strtoupper('Terbuka') ? 'selected' : '' }}
+                                                           value="Terbuka">Terbuka</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->tipe == strtoupper('Tertutup') ? 'selected' : '' }}
+                                                           value="Tertutup">Tertutup</option>
                                                    </select>
                                                    <small class="text-danger"></small>
                                                </div>
@@ -142,7 +171,9 @@
                                                    <select class="form-control" name="kondisi_fisik">
                                                        <option value="">Pilih Kondisi Fisik</option>
                                                        @foreach ($fisik as $item)
-                                                           <option value="{{ $item->nama }}">{{ $item->nama }}
+                                                           <option
+                                                               {{ Route::is('drainase2022.edit') && $drainase2022->kondisi_fisik == strtoupper($item->nama) ? 'selected' : '' }}
+                                                               value="{{ $item->nama }}">{{ $item->nama }}
                                                            </option>
                                                        @endforeach
                                                    </select>
@@ -154,8 +185,12 @@
                                                    <label>Sisi Jalan</label>
                                                    <select class="form-control" name="sisi">
                                                        <option value="">Pilih Sisi Jalan</option>
-                                                       <option value="Kanan">Kanan</option>
-                                                       <option value="Kiri">Kiri</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->sisi == strtoupper('Kanan') ? 'selected' : '' }}
+                                                           value="Kanan">Kanan</option>
+                                                       <option
+                                                           {{ Route::is('drainase2022.edit') && $drainase2022->sisi == strtoupper('Kiri') ? 'selected' : '' }}
+                                                           value="Kiri">Kiri</option>
                                                    </select>
                                                    <small class="text-danger"></small>
                                                </div>
@@ -165,6 +200,10 @@
                                            <div class="col-md-6 col-sm-12">
                                                <div class="form-group">
                                                    <label>File KMZ</label>
+
+                                                   <input type="hidden" class="form-control" name="file_kmz_edit"
+                                                       value="{{ Route::is('drainase2022.edit') ? $drainase2022->file_kmz : '' }}"
+                                                       placeholder="Lebar Atas">
                                                    <input type="file" name="file_kmz" class="form-control"
                                                        accept=".kmz" />
                                                    <small class="text-danger"></small>
@@ -176,6 +215,19 @@
                                                    <input type="file" name="foto" class="form-control"
                                                        accept="image/*" />
                                                    <small class="text-danger"></small>
+                                               </div>
+                                               <div id="img-preview">
+                                                   @if (Route::is('drainase2022.edit') &&
+                                                       !empty($drainase2022->foto) &&
+                                                       file_exists('storage/foto/' . $drainase2022->foto))
+                                                       <img src="{{ asset('storage/foto/' . $drainase2022->foto) }}"
+                                                           alt="Picture" class="img-thumbnail preview">
+
+                                                       {{-- {{ asset('storage/article/' . $article->thumbnail) }} --}}
+                                                   @else
+                                                       <img src="https://fakeimg.pl/1280x720" alt="Picture"
+                                                           class="img-thumbnail preview">
+                                                   @endif
                                                </div>
                                            </div>
                                        </div>

@@ -112,6 +112,42 @@ function destroy(id) {
         .set("labels", { ok: "Hapus", cancel: "Batal" });
 }
 
+function exportXlsx() {
+    loader();
+    $.ajax({
+        type: "GET",
+        url: "/datamaster/drainase2022/export",
+        xhrFields: {
+            responseType: "blob",
+        },
+        success: function(result) {
+            // The actual download
+            var blob = new Blob([result], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            });
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "Drainase2022.xlsx";
+            document.body.appendChild(link);
+            link.click();
+
+            alertify.notify(
+                "Data berhasil diekspor!",
+                "success",
+                2,
+                function() {
+                    reloadTable();
+                }
+            );
+        },
+        error: function(err) {
+            alertify.notify("Terjadi kesalahan!", "error", 2, function() {
+                location.reload();
+            });
+        },
+    });
+}
+
 function importXlsx() {
     alertify.genericDialog ||
         alertify.dialog("genericDialog", function() {
