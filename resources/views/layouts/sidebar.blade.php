@@ -37,6 +37,8 @@
                             href="{{ route('jalan.index') }}">Jalan</a></li>
                     <li><a class="{{ Request::is('datamaster/kelurahan/*') ? 'mm-active' : '' }}"
                             href="{{ route('kelurahan.index') }}">Kelurahan</a></li>
+                    <li><a class="{{ Request::is('datamaster/kecamatan/*') ? 'mm-active' : '' }}"
+                            href="{{ route('kecamatan.index') }}">Kecamatan</a></li>
                 </ul>
             </li>
             {{-- class="{{ Request::is('datamaster/drainase2022*') ? 'active' : '' }}" --}}

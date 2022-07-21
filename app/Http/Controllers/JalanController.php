@@ -18,8 +18,8 @@ class JalanController extends Controller
     {
         $title = 'Data Jalan';
         if (request()->ajax()) {
-            $drainase = Jalan::latest();
-            return DataTables::of($drainase)
+            $jalan = Jalan::latest();
+            return DataTables::of($jalan)
                 ->addIndexColumn()
                 ->editColumn('kelurahan', function ($row) {
                     return $row->kelurahan->nama;
@@ -69,14 +69,14 @@ class JalanController extends Controller
             return response()->json(['error' => $validator->errors(), 'status' => false]);
         } else {
             if (empty($request->id)) { //CREATE
-                $genangan = new Jalan();
-                $genangan->nama = $request->nama;
-                $genangan->kecamatan_id = $request->kecamatan;
-                $genangan->kelurahan_id = $request->kelurahan;
+                $jalan = new Jalan();
+                $jalan->nama = $request->nama;
+                $jalan->kecamatan_id = $request->kecamatan;
+                $jalan->kelurahan_id = $request->kelurahan;
 
                 DB::beginTransaction();
                 try {
-                    $genangan->save();
+                    $jalan->save();
                     DB::commit();
                     return response()->json(['status' => true, 'redirect' =>  route("jalan.create")]);
                 } catch (\Exception $e) {
@@ -84,13 +84,13 @@ class JalanController extends Controller
                     return response()->json(['status' => false, 'err' => $e->getMessage()]);
                 }
             } else { //UPDATE
-                $genangan =  Jalan::find($request->id);
-                $genangan->nama = $request->nama;
-                $genangan->kecamatan_id = $request->kecamatan;
-                $genangan->kelurahan_id = $request->kelurahan;
+                $jalan =  Jalan::find($request->id);
+                $jalan->nama = $request->nama;
+                $jalan->kecamatan_id = $request->kecamatan;
+                $jalan->kelurahan_id = $request->kelurahan;
 
                 try {
-                    $genangan->save();
+                    $jalan->save();
                     DB::commit();
                     return response()->json(['status' => true, 'redirect' =>  route("jalan.edit", $request->id)]);
                 } catch (\Throwable $th) {

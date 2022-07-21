@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\DrainaseController;
 use App\Http\Controllers\GenanganController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
@@ -74,6 +75,14 @@ Route::group(['middleware' => ['auth']], function () {
             Route::delete('kelurahan/destroy/{id}', 'destroy');
             Route::post('kelurahan/import', 'import');
             Route::get('kelurahan/export', 'export')->name('kelurahan.export');
+        });
+        // kecamatan
+        Route::controller(KecamatanController::class)->group(function () {
+            Route::get('kecamatan', 'index')->name('kecamatan.index');
+            Route::get('kecamatan/create', 'create')->name('kecamatan.create');
+            Route::get('kecamatan/edit/{id}', 'edit')->name('kecamatan.edit');
+            Route::post('kecamatan/store', 'store');
+            Route::delete('kecamatan/destroy/{id}', 'destroy');
         });
     });
 

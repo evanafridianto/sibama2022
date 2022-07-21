@@ -18,8 +18,8 @@ class KelurahanController extends Controller
     {
         $title = 'Data Kelurahan';
         if (request()->ajax()) {
-            $drainase = Kelurahan::latest();
-            return DataTables::of($drainase)
+            $kelurahan = Kelurahan::latest();
+            return DataTables::of($kelurahan)
                 ->addIndexColumn()
                 ->editColumn('kecamatan', function ($row) {
                     return $row->kecamatan->nama;
@@ -30,7 +30,7 @@ class KelurahanController extends Controller
                                                     <a href="javascript:void(0);" onclick="destroy(' . $row->id .  ')" class="btn btn-sm btn-danger"><i class="la la-trash-o"></i></a>';
                     return $btn;
                 })
-                ->rawColumns(['kelurahan', 'kecamatan', 'action'])
+                ->rawColumns(['kecamatan', 'action'])
                 ->make(true);
         }
         return view('pages.kelurahan.index', compact('title'));
@@ -69,13 +69,13 @@ class KelurahanController extends Controller
             return response()->json(['error' => $validator->errors(), 'status' => false]);
         } else {
             if (empty($request->id)) { //CREATE
-                $genangan = new Kelurahan();
-                $genangan->nama = $request->nama;
-                $genangan->kecamatan_id = $request->kecamatan;
+                $kelurahan = new Kelurahan();
+                $kelurahan->nama = $request->nama;
+                $kelurahan->kecamatan_id = $request->kecamatan;
 
                 DB::beginTransaction();
                 try {
-                    $genangan->save();
+                    $kelurahan->save();
                     DB::commit();
                     return response()->json(['status' => true, 'redirect' =>  route("kelurahan.create")]);
                 } catch (\Exception $e) {
@@ -83,11 +83,11 @@ class KelurahanController extends Controller
                     return response()->json(['status' => false, 'err' => $e->getMessage()]);
                 }
             } else { //UPDATE
-                $genangan =  Kelurahan::find($request->id);
-                $genangan->nama = $request->nama;
-                $genangan->kecamatan_id = $request->kecamatan;
+                $kelurahan =  Kelurahan::find($request->id);
+                $kelurahan->nama = $request->nama;
+                $kelurahan->kecamatan_id = $request->kecamatan;
                 try {
-                    $genangan->save();
+                    $kelurahan->save();
                     DB::commit();
                     return response()->json(['status' => true, 'redirect' =>  route("kelurahan.edit", $request->id)]);
                 } catch (\Throwable $th) {
@@ -125,8 +125,8 @@ class KelurahanController extends Controller
 
     public function destroy($id)
     {
-        $jalan = Kelurahan::findOrFail($id);
-        $jalan->delete();
+        $kelurahan = Kelurahan::findOrFail($id);
+        $kelurahan->delete();
         return response()->json(['status' => true]);
     }
 }
