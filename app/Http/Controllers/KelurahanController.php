@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use Illuminate\Http\Request;
+use App\Exports\KelurahanExport;
+use App\Imports\KelurahanImport;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
 
@@ -90,6 +93,32 @@ class KelurahanController extends Controller
                 } catch (\Throwable $th) {
                     DB::rollBack();
                 }
+            }
+        };
+    }
+
+    public function export()
+    {
+        return Excel::download(new KelurahanExport, 'Kelurahan.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'file_xlsx' => 'required|max:5000|mimes:xlsx,xls',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors(), 'status' => false]);
+        } else {
+            DB::beginTransaction();
+            try {
+                Excel::import(new KelurahanImport, request()->file('file_xlsx'));
+                DB::commit();
+                return response()->json(['status' => true]);
+            } catch (\Exception $e) {
+                DB::rollBack();
+                return response()->json(['status' => false, 'err' => $e->getMessage()]);
             }
         };
     }

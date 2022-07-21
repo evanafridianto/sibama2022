@@ -96,7 +96,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/datamaster/jalan/export",
+        url: "/datamaster/kelurahan/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -107,7 +107,7 @@ function exportXlsx() {
             });
             var link = document.createElement("a");
             link.href = window.URL.createObjectURL(blob);
-            link.download = "Jalan.xlsx";
+            link.download = "Kelurahan.xlsx";
             document.body.appendChild(link);
             link.click();
 
@@ -176,7 +176,7 @@ function importXlsx() {
 
         $.ajax({
             type: "POST",
-            url: "/datamaster/jalan/import",
+            url: "/datamaster/kelurahan/import",
             data: formData,
             contentType: false,
             processData: false,
@@ -201,6 +201,7 @@ function importXlsx() {
                             .text(value);
                     });
                 }
+                console.log(data);
             },
             error: function(response) {
                 alertify.notify("Terjadi kesalahan!", "error", 2, function() {
