@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\R24Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JalanController;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\DrainaseController;
 use App\Http\Controllers\GenanganController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Drainase2022Controller;
+use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -32,27 +34,50 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/peta', [MapController::class, 'index'])->name('map');
     Route::get('/peta/drainase/{tahun}', [MapController::class, 'drainase']);
 
-    // drainase2022
-    Route::controller(Drainase2022Controller::class)->group(function () {
-        Route::get('datamaster/drainase2022', 'index')->name('drainase2022.index');
-        Route::get('datamaster/drainase2022/create', 'create')->name('drainase2022.create');
-        Route::get('datamaster/drainase2022/edit/{id}', 'edit')->name('drainase2022.edit');
-        Route::post('datamaster/drainase2022/store', 'store');
-        Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
-        Route::get('datamaster/drainase2022/export', 'export')->name('drainase2022.export');
-        Route::post('datamaster/drainase2022/import', 'import');
-    });
 
-    // genangan
-    Route::controller(GenanganController::class)->group(function () {
-        Route::get('datamaster/genangan', 'index')->name('genangan.index');
-        Route::get('datamaster/genangan/create', 'create')->name('genangan.create');
-        Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
-        Route::post('datamaster/genangan/store', 'store');
+    Route::group(['prefix' => 'datamaster'], function () {
+        // drainase
+        Route::controller(DrainaseController::class)->group(function () {
+            Route::get('drainase/{tahun}', 'index')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.index');
+            Route::get('drainase/{tahun}/create', 'create')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.create');
+            Route::get('drainase/{tahun}/edit/{id}', 'edit')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.edit');
+            Route::post('drainase/{tahun}/store', 'store')->whereIn('tahun', ['2020', '2021', '2022']);
+            Route::delete('drainase/{tahun}/destroy/{id}', 'destroy')->whereIn('tahun', ['2020', '2021', '2022']);
+            Route::get('drainase/{tahun}/export', 'export')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.export');
+            Route::post('drainase/{tahun}/import', 'import')->whereIn('tahun', ['2020', '2021', '2022']);
+        });
 
-        Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
-        Route::post('datamaster/genangan/import', 'import');
-        Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+        // genangan
+        Route::controller(GenanganController::class)->group(function () {
+            Route::get('datamaster/genangan', 'index')->name('genangan.index');
+            Route::get('datamaster/genangan/create', 'create')->name('genangan.create');
+            Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
+            Route::post('datamaster/genangan/store', 'store');
+            Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
+            Route::post('datamaster/genangan/import', 'import');
+            Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+        });
+        // jalan
+        Route::controller(JalanController::class)->group(function () {
+            Route::get('jalan', 'index')->name('jalan.index');
+            Route::get('jalan/create', 'create')->name('jalan.create');
+            Route::get('jalan/edit/{id}', 'edit')->name('jalan.edit');
+            Route::post('jalan/store', 'store');
+            Route::delete('jalan/destroy/{id}', 'destroy');
+            // Route::post('datamaster/genangan/import', 'import');
+            // Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+        });
+        // kelurahan
+        Route::controller(KelurahanController::class)->group(function () {
+            // Route::get('jalan', 'index')->name('jalan.index');
+            // Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
+            // Route::post('jalan/store', 'store');
+
+            Route::get('kelurahan/kecamatanId/{id}', 'kelByKec');
+            // Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
+            // Route::post('datamaster/genangan/import', 'import');
+            // Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+        });
     });
 
     // r24
@@ -69,10 +94,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
-// api
-Route::controller(ApiController::class)->group(function () {
-    Route::get('api/layer/{table}', 'layer');
-});
 
-require base_path('routes/api.php');
+
+// require base_path('routes/api.php');
 require __DIR__ . '/auth.php';

@@ -16,10 +16,6 @@ class ApiController extends Controller
             $genangan = Genangan::all();
 
             foreach ($genangan as $key => $value) {
-                // return response()->json([
-                //     'dataku' => $value->id
-                // ]);
-
                 $data = null;
                 $data['type'] = "FeatureCollection";
                 $data['features'] =

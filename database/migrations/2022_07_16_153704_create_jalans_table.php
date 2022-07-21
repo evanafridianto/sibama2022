@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->foreign('kelurahan_id')->references('id')->on('kelurahan')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('kecamatan_id')->references('id')->on('kecamatan')->onDelete('cascade')->onUpdate('cascade');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

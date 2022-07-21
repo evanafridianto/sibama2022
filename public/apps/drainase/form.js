@@ -1,5 +1,5 @@
 $(function() {
-    $("#drainase2022-form").submit(function(e) {
+    $("#drainase-form").submit(function(e) {
         loader();
         $.ajaxSetup({
             headers: {
@@ -9,7 +9,7 @@ $(function() {
         var formData = new FormData($(this)[0]);
         $.ajax({
             type: "POST",
-            url: "/datamaster/drainase2022/store",
+            url: "/drainase/2022/store",
             data: formData,
             contentType: false,
             processData: false,

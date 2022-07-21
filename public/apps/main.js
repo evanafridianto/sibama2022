@@ -2,8 +2,10 @@ $(function() {
     $("input, select, textarea").bind("keyup change input click", function() {
         if ($(this).next().is("small")) {
             $(this).next(".text-danger").empty();
-        } else {
+        } else if ($(this).parent().next().is("small")) {
             $(this).parent().next(".text-danger").empty();
+        } else {
+            $(this).parent().next().next(".text-danger").empty();
         }
     });
 });

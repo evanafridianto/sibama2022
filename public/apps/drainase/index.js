@@ -67,7 +67,8 @@ function reloadTable() {
 }
 
 // destroy
-function destroy(id) {
+function destroy(tahun, id) {
+    console.log(tahun);
     alertify
         .confirm(
             "Konfirmasi!",
@@ -82,7 +83,7 @@ function destroy(id) {
                 });
 
                 $.ajax({
-                    url: "/datamaster/drainase2022/destroy/" + id,
+                    url: "/drainase/2022/destroy/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
@@ -116,7 +117,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/datamaster/drainase2022/export",
+        url: "/drainase/2022/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -148,7 +149,7 @@ function exportXlsx() {
     });
 }
 
-function importXlsx() {
+function importXlsx(tahun) {
     alertify.genericDialog ||
         alertify.dialog("genericDialog", function() {
             return {
@@ -196,7 +197,7 @@ function importXlsx() {
 
         $.ajax({
             type: "POST",
-            url: "/datamaster/drainase2022/import",
+            url: `/drainase/${tahun}/import`,
             data: formData,
             contentType: false,
             processData: false,

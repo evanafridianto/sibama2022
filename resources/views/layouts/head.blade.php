@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="{{ asset('admin/vendor/leaflet/leaflet.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/vendor/leaflet/leaflet-panel-layers/leaflet-panel-layers.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('admin/vendor/select2/css/select2.min.css') }}">
+    <link href="{{ asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+
+
     <!-- Datatable -->
     <link href="{{ asset('admin/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">

@@ -9,4 +9,10 @@ class Kelurahan extends Model
 {
     use HasFactory;
     protected $table = 'kelurahan';
+
+
+    public function jalans()
+    {
+        return $this->hasMany(Jalan::class);
+    }
 }

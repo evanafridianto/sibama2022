@@ -7,6 +7,11 @@
  <script src="{{ asset('admin/vendor/alertifyjs/alertify.js') }}"></script>
  <script src="{{ asset('admin/vendor/waitMe/waitMe.js') }}"></script>
 
+
+ <script src="{{ asset('admin/vendor/select2/js/select2.full.min.js') }}"></script>
+ <script src="{{ asset('admin/js/plugins-init/select2-init.js') }}"></script>
+
+
  <!-- Leaflet-KMZ -->
  <script src="{{ asset('admin/vendor/leaflet/leaflet.js') }}"></script>
  <script src="{{ asset('admin/vendor/leaflet/leaflet-kmz/leaflet-kmz.js') }}"></script>

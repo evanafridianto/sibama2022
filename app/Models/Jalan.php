@@ -9,4 +9,19 @@ class Jalan extends Model
 {
     use HasFactory;
     protected $table = 'jalan';
+    protected $fillable = [
+        'nama',
+        'kelurahan_id',
+        'kecamatan_id',
+    ];
+
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class);
+    }
+    public function kelurahan()
+    {
+        return $this->belongsTo(Kelurahan::class);
+    }
 }

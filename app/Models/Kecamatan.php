@@ -9,4 +9,11 @@ class Kecamatan extends Model
 {
     use HasFactory;
     protected $table = 'kecamatan';
+
+
+
+    public function jalans()
+    {
+        return $this->hasMany(Jalan::class);
+    }
 }

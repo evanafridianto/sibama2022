@@ -45,7 +45,7 @@ INSERT INTO `kelurahan` (`id`, `nama`, `kecamatan_id`) VALUES
 (34, 'Merjosari', 1),
 (35, 'Mojolangu', 1),
 (36, 'Mulyorejo', 2),
-(37, 'Oro Oro Dowo', 5),
+(37, 'Oro2 Dowo', 5),
 (38, 'Pandanwangi', 3),
 (39, 'Penanggungan', 5),
 (40, 'Pisang Candi', 2),
