@@ -13,6 +13,7 @@
 
  <!-- Leaflet-Panel-Layers -->
  <script src="{{ asset('admin/vendor/leaflet/leaflet-panel-layers/leaflet-panel-layers.js') }}"></script>
+ <script src="{{ asset('admin/vendor/leaflet/leaflet-ajax/leaflet.ajax.js') }}"></script>
 
 
  <!-- Datatable -->

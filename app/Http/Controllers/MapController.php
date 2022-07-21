@@ -10,7 +10,7 @@ class MapController extends Controller
     //
     public function index()
     {
-        $title = 'Peta Drainae';
+        $title = 'Peta Drainase';
         return view('pages.map', compact('title'));
     }
 

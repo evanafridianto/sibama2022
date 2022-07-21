@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('genangan', function (Blueprint $table) {
             $table->id();
-
-            $table->string('file_kml');
-            $table->enum('status', ['Aktif', 'Tidak Aktif']);
+            $table->string('nama_jalan');
+            $table->text('alamat');
+            $table->double('latitude');
+            $table->double('longitude');
+            $table->string('cctv_id');
+            $table->string('host');
+            $table->string('stream_id');
             $table->timestamps();
         });
     }

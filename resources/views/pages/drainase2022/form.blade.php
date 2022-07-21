@@ -63,7 +63,7 @@
                                                    <label>Nama Jalan</label>
                                                    <input type="text" class="form-control" name="nama_jalan"
                                                        value="{{ Route::is('drainase2022.edit') ? $drainase2022->nama_jalan : '' }}"
-                                                       placeholder="Kode Saluran">
+                                                       placeholder="Nama Jalan">
                                                    {{-- <select class="form-control" name="nama_jalan">
                                                        <option value="">Pilih Jalan</option>
                                                        @foreach ($jalan as $item)

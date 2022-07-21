@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\R24Controller;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\GenanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Drainase2022Controller;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -37,7 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('datamaster/drainase2022/edit/{id}', 'edit')->name('drainase2022.edit');
         Route::post('datamaster/drainase2022/store', 'store');
         Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
-
         Route::get('datamaster/drainase2022/export', 'export')->name('drainase2022.export');
         Route::post('datamaster/drainase2022/import', 'import');
     });
@@ -45,16 +46,13 @@ Route::group(['middleware' => ['auth']], function () {
     // genangan
     Route::controller(GenanganController::class)->group(function () {
         Route::get('datamaster/genangan', 'index')->name('genangan.index');
+        Route::get('datamaster/genangan/create', 'create')->name('genangan.create');
+        Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
+        Route::post('datamaster/genangan/store', 'store');
 
-        // Route::get('datamaster/drainase2022/create', 'create')->name('drainase2022.create');
-
-        // Route::get('datamaster/penduduk/edit/{id}', 'edit')->name('penduduk.edit');
-        // Route::post('datamaster/penduduk/simpan', 'store');
-
-        // Route::delete('datamaster/drainase2022/destroy/{id}', 'destroy');
-
-        // Route::get('datamaster/penduduk/show/{nik}', 'show')->name('penduduk.show');
-        // Route::get('datamaster/penduduk/export/{format}', 'export')->name('penduduk.export');
+        Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
+        Route::post('datamaster/genangan/import', 'import');
+        Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
     });
 
     // r24
@@ -71,4 +69,10 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
+// api
+Route::controller(ApiController::class)->group(function () {
+    Route::get('api/layer/{table}', 'layer');
+});
+
+require base_path('routes/api.php');
 require __DIR__ . '/auth.php';

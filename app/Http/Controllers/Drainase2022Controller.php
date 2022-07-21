@@ -192,8 +192,6 @@ class Drainase2022Controller extends Controller
     public function export()
     {
         return Excel::download(new Drainase2022Export, 'Drainase2022.xlsx');
-
-        return redirect()->back();
     }
 
     public function destroy($id)

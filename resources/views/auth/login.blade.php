@@ -74,6 +74,7 @@
     <script src="{{ asset('admin/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/waitMe/waitMe.js') }}"></script>
+    <script src="{{ asset('admin/vendor/alertifyjs/alertify.js') }}"></script>
     <script src="{{ asset('apps/loader.js') }}"></script>
     <script src="{{ asset('apps/main.js') }}"></script>
 

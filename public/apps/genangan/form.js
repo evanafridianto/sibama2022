@@ -1,5 +1,5 @@
 $(function() {
-    $("#drainase2022-form").submit(function(e) {
+    $("#genangan-form").submit(function(e) {
         loader();
         $.ajaxSetup({
             headers: {
@@ -9,7 +9,7 @@ $(function() {
         var formData = new FormData($(this)[0]);
         $.ajax({
             type: "POST",
-            url: "/datamaster/drainase2022/store",
+            url: "/datamaster/genangan/store",
             data: formData,
             contentType: false,
             processData: false,
@@ -26,20 +26,9 @@ $(function() {
                     );
                 } else {
                     $.each(data.error, function(key, value) {
-                        if (
-                            $('[name="' + key + '"]')
+                        $('[name="' + key + '"]')
                             .next()
-                            .is("small")
-                        ) {
-                            $('[name="' + key + '"]')
-                                .next()
-                                .text(value);
-                        } else {
-                            $('[name="' + key + '"]')
-                                .parent()
-                                .next()
-                                .text(value);
-                        }
+                            .text(value);
                     });
                 }
             },
@@ -50,10 +39,5 @@ $(function() {
             },
         });
         e.preventDefault();
-    });
-
-    $('[name="foto"]').change(function() {
-        readURL(this);
-        // console.log("hahah");
     });
 });
