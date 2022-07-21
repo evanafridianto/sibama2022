@@ -1,5 +1,5 @@
 $(function() {
-    $("#kelurahan-form").submit(function(e) {
+    $("#kategori-form").submit(function(e) {
         loader();
         $.ajaxSetup({
             headers: {
@@ -9,7 +9,7 @@ $(function() {
         var formData = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "/datamaster/kelurahan/store",
+            url: "/datamaster/kategori/store",
             data: formData,
             dataType: "JSON",
             success: function(data) {

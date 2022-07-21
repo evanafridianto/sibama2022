@@ -9,6 +9,9 @@ class Kecamatan extends Model
 {
     use HasFactory;
     protected $table = 'kecamatan';
+    protected $fillable = [
+        'nama',
+    ];
 
 
 

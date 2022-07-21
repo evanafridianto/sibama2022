@@ -14,8 +14,8 @@ class KecamatanController extends Controller
     {
         $title = 'Data Kecamatan';
         if (request()->ajax()) {
-            $drainase = Kecamatan::latest();
-            return DataTables::of($drainase)
+            $kecamatan = Kecamatan::latest();
+            return DataTables::of($kecamatan)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $btn = '  <a href="' . route('kecamatan.edit', $row->id) . '" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>

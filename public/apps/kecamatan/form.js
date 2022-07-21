@@ -6,13 +6,11 @@ $(function() {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
         });
-        var formData = new FormData($(this)[0]);
+        var formData = $(this).serialize();
         $.ajax({
             type: "POST",
             url: "/datamaster/kecamatan/store",
             data: formData,
-            contentType: false,
-            processData: false,
             dataType: "JSON",
             success: function(data) {
                 if (data.status) {

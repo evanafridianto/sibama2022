@@ -8,6 +8,7 @@ use App\Http\Controllers\JalanController;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\DrainaseController;
 use App\Http\Controllers\GenanganController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KelurahanController;
@@ -83,6 +84,14 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('kecamatan/edit/{id}', 'edit')->name('kecamatan.edit');
             Route::post('kecamatan/store', 'store');
             Route::delete('kecamatan/destroy/{id}', 'destroy');
+        });
+        // kategori
+        Route::controller(KategoriController::class)->group(function () {
+            Route::get('kategori', 'index')->name('kategori.index');
+            Route::get('kategori/create', 'create')->name('kategori.create');
+            Route::get('kategori/edit/{id}', 'edit')->name('kategori.edit');
+            Route::post('kategori/store', 'store');
+            Route::delete('kategori/destroy/{id}', 'destroy');
         });
     });
 

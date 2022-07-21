@@ -33,6 +33,8 @@
                             href="{{ route('drainase2022.index') }}">Drainase 2022</a></li> --}}
                     <li><a class="{{ Request::is('datamaster/genangan/*') ? 'mm-active' : '' }}"
                             href="{{ route('genangan.index') }}">Titik Genangan</a></li>
+                    <li><a class="{{ Request::is('datamaster/kategori/*') ? 'mm-active' : '' }}"
+                            href="{{ route('kategori.index') }}">Kategori</a></li>
                     <li><a class="{{ Request::is('datamaster/jalan/*') ? 'mm-active' : '' }}"
                             href="{{ route('jalan.index') }}">Jalan</a></li>
                     <li><a class="{{ Request::is('datamaster/kelurahan/*') ? 'mm-active' : '' }}"

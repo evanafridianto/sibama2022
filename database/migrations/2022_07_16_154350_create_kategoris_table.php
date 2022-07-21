@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->enum('induk', ['Kondisi Fisik', 'Kondisi Sedimen', 'Penanganan']);
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 
