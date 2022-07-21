@@ -22,11 +22,10 @@
                            <div class="card-header">
                                <div class="btn-list">
                                    <a href="{{ route('jalan.create') }}" class="btn btn-primary">Tambah Baru</a>
-                                   {{-- <button type="button" onclick="importXlsx({{ $tahun }})"
-                                       class="btn btn-info">Impor Xlsx</button>
+                                   <button type="button" onclick="importXlsx()" class="btn btn-info">Impor Xlsx</button>
                                    <button type="button" onclick="exportXlsx()" class="btn btn-success">Ekspor
                                        Xlsx</button>
-                                   <button type="button" onclick="reloadTable()" class="btn btn-secondary">Reload
+                                   {{-- <button type="button" onclick="reloadTable()" class="btn btn-secondary">Reload
                                        Table</button> --}}
                                </div>
                            </div>

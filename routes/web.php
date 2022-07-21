@@ -49,13 +49,13 @@ Route::group(['middleware' => ['auth']], function () {
 
         // genangan
         Route::controller(GenanganController::class)->group(function () {
-            Route::get('datamaster/genangan', 'index')->name('genangan.index');
-            Route::get('datamaster/genangan/create', 'create')->name('genangan.create');
-            Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
-            Route::post('datamaster/genangan/store', 'store');
-            Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
-            Route::post('datamaster/genangan/import', 'import');
-            Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+            Route::get('genangan', 'index')->name('genangan.index');
+            Route::get('genangan/create', 'create')->name('genangan.create');
+            Route::get('genangan/edit/{id}', 'edit')->name('genangan.edit');
+            Route::post('genangan/store', 'store');
+            Route::delete('genangan/destroy/{id}', 'destroy');
+            Route::post('genangan/import', 'import');
+            Route::get('genangan/export', 'export')->name('genangan.export');
         });
         // jalan
         Route::controller(JalanController::class)->group(function () {
@@ -64,8 +64,8 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('jalan/edit/{id}', 'edit')->name('jalan.edit');
             Route::post('jalan/store', 'store');
             Route::delete('jalan/destroy/{id}', 'destroy');
-            // Route::post('datamaster/genangan/import', 'import');
-            // Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
+            Route::post('jalan/import', 'import');
+            Route::get('jalan/export', 'export')->name('jalan.export');
         });
         // kelurahan
         Route::controller(KelurahanController::class)->group(function () {

@@ -72,7 +72,7 @@ $(function() {
 
 function onEachFeature(feature, layer) {
     if (feature.properties) {
-        var content = `<h4>${feature.properties.nama_jalan}</h4><iframe src="//stream.cctv.malangkota.go.id:/WebRTCApp/play.html?name=${feature.properties.stream_id}" title="cctv" defer></iframe>`;
+        var content = `<h4>${feature.properties.nama_jalan}</h4><iframe frameborder="0"  allow="fullscreen;" src="//stream.cctv.malangkota.go.id:/WebRTCApp/play.html?name=${feature.properties.stream_id}" title="cctv" defer></iframe>`;
         layer.bindPopup(content, {
             maxHeight: 1200,
             maxWidth: 800,

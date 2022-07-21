@@ -120,7 +120,7 @@ class GenanganController extends Controller
                 return response()->json(['status' => true]);
             } catch (\Exception $e) {
                 DB::rollBack();
-                return response()->json(['status' => false, 'err' => $e->getMessage()]);
+                // return response()->json(['status' => false, 'err' => $e->getMessage()]);
             }
         };
     }

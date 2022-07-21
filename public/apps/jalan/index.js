@@ -101,7 +101,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/datamaster/genangan/export",
+        url: "/datamaster/jalan/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -112,7 +112,7 @@ function exportXlsx() {
             });
             var link = document.createElement("a");
             link.href = window.URL.createObjectURL(blob);
-            link.download = "Titik_Genangan.xlsx";
+            link.download = "Jalan.xlsx";
             document.body.appendChild(link);
             link.click();
 
@@ -181,7 +181,7 @@ function importXlsx() {
 
         $.ajax({
             type: "POST",
-            url: "/datamaster/genangan/import",
+            url: "/datamaster/jalan/import",
             data: formData,
             contentType: false,
             processData: false,
@@ -206,7 +206,6 @@ function importXlsx() {
                             .text(value);
                     });
                 }
-                console.log(data);
             },
             error: function(response) {
                 alertify.notify("Terjadi kesalahan!", "error", 2, function() {
