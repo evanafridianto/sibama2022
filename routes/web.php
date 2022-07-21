@@ -69,12 +69,13 @@ Route::group(['middleware' => ['auth']], function () {
         });
         // kelurahan
         Route::controller(KelurahanController::class)->group(function () {
-            // Route::get('jalan', 'index')->name('jalan.index');
-            // Route::get('datamaster/genangan/edit/{id}', 'edit')->name('genangan.edit');
-            // Route::post('jalan/store', 'store');
+            Route::get('kelurahan', 'index')->name('kelurahan.index');
+            Route::get('kelurahan/create', 'create')->name('kelurahan.create');
+            Route::get('kelurahan/edit/{id}', 'edit')->name('kelurahan.edit');
+            Route::post('kelurahan/store', 'store');
 
             Route::get('kelurahan/kecamatanId/{id}', 'kelByKec');
-            // Route::delete('datamaster/genangan/destroy/{id}', 'destroy');
+            Route::delete('kelurahan/destroy/{id}', 'destroy');
             // Route::post('datamaster/genangan/import', 'import');
             // Route::get('datamaster/genangan/export', 'export')->name('genangan.export');
         });

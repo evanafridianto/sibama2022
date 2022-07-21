@@ -808,3 +808,15 @@ INSERT INTO `drainase2022` (`id`, `kode_saluran`, `kecamatan`, `kelurahan`, `nam
 (801, 'OSH129', 'KLOJEN', 'SUKOHARJO', 'JL. GATOT SUBROTO', 'KIRI', '57.27', '120', '120', '120', 'UTARA', 'TERTUTUP', 'BAIK', '1670_2022-06-17 09-31-26.jpg', 'sukoharjo/OSH129.kmz', '2022-07-16 07:13:55', '2022-07-16 07:13:55');
 
 
+
+
+INSERT INTO `genangan` (`id`, `nama_jalan`, `alamat`, `latitude`, `longitude`, `cctv_id`, `host`, `stream_id`, `created_at`, `updated_at`) VALUES
+(1, 'Jl. Merdeka Barat Arah Utara,', 'Jl. Kauman No.6, Kauman, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia,', -7.98317374, 112.6299186, '42dc1aab-e4b2-4048-8839-0c6f5dbedc4e', '10.0.2.15', '818599107354393628794315', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(2, 'Jl. Agus Salim Arah Timur,', 'Jl. Agus Salim No.6, Sukoharjo, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia,', -7.983651454, 112.6313201, '49cb4c8a-2497-4e16-b689-84bed845864f', '10.0.2.14', '117940938424194503584011', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(3, 'Jl. Patimura Arah Barat,', 'Jl. Patimura No.22, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111, Indonesia,', -7.973161584, 112.63455, '4ebc6864-f4e3-40e3-b95a-ffc6bf5a387a', '10.0.2.219', '846669458386847680283620', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(4, 'JL. Merdeka Timur Arah Selatan,', 'Jl. Merdeka, Kiduldalem, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia,', -7.983598219, 112.6313128, '6b37feda-0573-48a0-9ea5-c3588d3d74a5', '10.0.2.11', '954955279531303785165551', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(5, 'Jl. Husni Tamrin Arah Utara,', 'Jl. Patimura No.22, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111, Indonesia,', -7.973157682, 112.6346032, '6f8b6c3f-dd2d-4ed1-97c5-16b159cf3050', '10.0.2.216', '824468526355652946351265', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(6, 'Jl. Suropati Arah Selatan,', 'Jl. Patimura No.22, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111, Indonesia,', -7.973215373, 112.6345838, 'af6dcc57-d805-4c01-8bec-f9261da34864', '10.0.2.218', '713173509121875472708904', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(7, 'Jl. Agus Salim Arah Timur,', 'Jl. Agus Salim No.6, Sukoharjo, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia,', -7.983512556, 112.6313703, 'db199501-0319-48e4-85b6-cd24e6cc5fe3', '10.0.2.13', '217486301753431654065609', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(8, 'Jl. SW Pranoto Arah Selatan,', 'Jl. Agus Salim No.6, Sukoharjo, Kec. Klojen, Kota Malang, Jawa Timur 65119, Indonesia,', -7.983603663, 112.6313651, 'edf5e793-a4f6-4aab-b219-84adc91a6d1d', '10.0.2.12', '421960655277255856257190', '2022-07-21 13:53:39', '2022-07-21 13:53:39'),
+(9, 'Jl. Patimura Arah Timur,', 'Jl. Patimura No.22, Klojen, Kec. Klojen, Kota Malang, Jawa Timur 65111, Indonesia,', -7.973192758, 112.6346135, 'f770636d-a14a-4b69-92d3-9eabf5709fc8', '10.0.2.217', '057943232109594939574526', '2022-07-21 13:53:39', '2022-07-21 13:53:39');

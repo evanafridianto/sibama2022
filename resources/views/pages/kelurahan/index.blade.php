@@ -21,8 +21,9 @@
                        <div class="card">
                            <div class="card-header">
                                <div class="btn-list">
-                                   <a href="{{ route('jalan.create') }}" class="btn btn-primary">Tambah Baru</a>
+                                   <a href="{{ route('kelurahan.create') }}" class="btn btn-primary">Tambah Baru</a>
                                    <button type="button" onclick="importXlsx()" class="btn btn-info">Impor Xlsx</button>
+                                   {{-- <a href="{{ route('drainase2022.export') }}" class="btn btn-success">Ekspor Xlsx</a> --}}
                                    <button type="button" onclick="exportXlsx()" class="btn btn-success">Ekspor
                                        Xlsx</button>
                                    <button type="button" onclick="reloadTable()" class="btn btn-secondary">Reload
@@ -35,14 +36,12 @@
                                        <thead>
                                            <tr>
                                                <th>No.</th>
-                                               <th>Nama Jalan</th>
-                                               <th>Kelurahan</th>
+                                               <th>Nama Kelurahan</th>
                                                <th>Kecamatan</th>
                                                <th>Aksi</th>
                                            </tr>
                                        </thead>
                                        <tbody>
-
                                        </tbody>
                                    </table>
                                </div>
@@ -52,5 +51,5 @@
                </div>
            </div>
        </div>
-       <script src="{{ asset('apps/jalan/index.js') }}"></script>
+       <script src="{{ asset('apps/kelurahan/index.js') }}"></script>
    @endsection

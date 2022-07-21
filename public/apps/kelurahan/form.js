@@ -1,5 +1,5 @@
 $(function() {
-    $("#drainase-form").submit(function(e) {
+    $("#kelurahan-form").submit(function(e) {
         loader();
         $.ajaxSetup({
             headers: {
@@ -9,7 +9,7 @@ $(function() {
         var formData = new FormData($(this)[0]);
         $.ajax({
             type: "POST",
-            url: "/datamaster/drainase/2022/store",
+            url: "/datamaster/kelurahan/store",
             data: formData,
             contentType: false,
             processData: false,
@@ -50,10 +50,5 @@ $(function() {
             },
         });
         e.preventDefault();
-    });
-
-    $('[name="foto"]').change(function() {
-        readURL(this);
-        // console.log("hahah");
     });
 });

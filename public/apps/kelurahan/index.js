@@ -21,23 +21,13 @@ $(function() {
                 searchable: false,
             },
             {
-                data: "nama_jalan",
-                name: "nama_jalan",
+                data: "nama",
+                name: "nama",
                 className: "align-middle",
             },
             {
-                data: "latitude",
-                name: "latitude",
-                className: "align-middle",
-            },
-            {
-                data: "longitude",
-                name: "longitude",
-                className: "align-middle",
-            },
-            {
-                data: "stream_id",
-                name: "stream_id",
+                data: "kecamatan",
+                name: "kecamatan",
                 className: "align-middle",
             },
             {
@@ -72,7 +62,7 @@ function destroy(id) {
                 });
 
                 $.ajax({
-                    url: "/datamaster/genangan/destroy/" + id,
+                    url: "/datamaster/kelurahan/destroy/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
@@ -106,7 +96,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/datamaster/genangan/export",
+        url: "/datamaster/jalan/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -117,7 +107,7 @@ function exportXlsx() {
             });
             var link = document.createElement("a");
             link.href = window.URL.createObjectURL(blob);
-            link.download = "Titik_Genangan.xlsx";
+            link.download = "Jalan.xlsx";
             document.body.appendChild(link);
             link.click();
 
@@ -186,7 +176,7 @@ function importXlsx() {
 
         $.ajax({
             type: "POST",
-            url: "/datamaster/genangan/import",
+            url: "/datamaster/jalan/import",
             data: formData,
             contentType: false,
             processData: false,
