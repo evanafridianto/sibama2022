@@ -72,7 +72,7 @@ function destroy(id) {
                 });
 
                 $.ajax({
-                    url: "/datamaster/genangan/destroy/" + id,
+                    url: "/drainase/genangan/destroy/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
@@ -106,7 +106,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/datamaster/genangan/export",
+        url: "/drainase/genangan/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -186,7 +186,7 @@ function importXlsx() {
 
         $.ajax({
             type: "POST",
-            url: "/datamaster/genangan/import",
+            url: "/drainase/genangan/import",
             data: formData,
             contentType: false,
             processData: false,

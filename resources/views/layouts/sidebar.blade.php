@@ -12,27 +12,30 @@
                     <span class="nav-text">Peta Drainase</span>
                 </a>
             </li>
+
+            <li class="{{ Request::is('drainase/*') ? 'mm-active' : '' }}"><a class="has-arrow" href="javascript:void()"
+                    aria-expanded="false">
+                    <i class="la la-archive"></i>
+                    <span class="nav-text">Data Drainase</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a class="{{ Request::is('genangan/*') ? 'mm-active' : '' }}"
+                            href="{{ route('genangan.index') }}">Titik Genangan</a></li>
+                    <li><a class="{{ Request::is('drainase/2020/*') ? 'mm-active' : '' }}"
+                            href="{{ route('drainase.index', 2020) }}">2020</a></li>
+                    <li><a class="{{ Request::is('drainase/2021/*') ? 'mm-active' : '' }}"
+                            href="page-error-403.html">2021</a></li>
+                    <li><a class="{{ Request::is('drainase/2022/*') ? 'mm-active' : '' }}"
+                            href="{{ route('drainase.index', 2022) }}">2022</a>
+                    </li>
+                </ul>
+            </li>
             <li class="{{ Request::is('datamaster/*') ? 'mm-active' : '' }}"><a class="has-arrow"
                     href="javascript:void()" aria-expanded="false">
                     <i class="la la-server"></i>
                     <span class="nav-text">Data Master</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Drainase</a>
-                        <ul aria-expanded="false">
-                            <li><a class="{{ Request::is('drainase/2020/*') ? 'mm-active' : '' }}"
-                                    href="{{ route('drainase.index', 2020) }}">2020</a></li>
-                            <li><a class="{{ Request::is('drainase/2021/*') ? 'mm-active' : '' }}"
-                                    href="page-error-403.html">2021</a></li>
-                            <li><a class="{{ Request::is('drainase/2022/*') ? 'mm-active' : '' }}"
-                                    href="{{ route('drainase.index', 2022) }}">2022</a>
-                            </li>
-                        </ul>
-                    </li>
-                    {{-- <li><a class="{{ Request::is('datamaster/drainase2022/*') ? 'mm-active' : '' }}"
-                            href="{{ route('drainase2022.index') }}">Drainase 2022</a></li> --}}
-                    <li><a class="{{ Request::is('datamaster/genangan/*') ? 'mm-active' : '' }}"
-                            href="{{ route('genangan.index') }}">Titik Genangan</a></li>
                     <li><a class="{{ Request::is('datamaster/kategori/*') ? 'mm-active' : '' }}"
                             href="{{ route('kategori.index') }}">Kategori</a></li>
                     <li><a class="{{ Request::is('datamaster/jalan/*') ? 'mm-active' : '' }}"

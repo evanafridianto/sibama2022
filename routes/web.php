@@ -35,27 +35,29 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/peta', [MapController::class, 'index'])->name('map');
     Route::get('/peta/drainase/{tahun}', [MapController::class, 'drainase']);
 
+    // drainase
+    Route::controller(DrainaseController::class)->group(function () {
+        Route::get('drainase/{tahun}', 'index')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.index');
+        Route::get('drainase/{tahun}/create', 'create')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.create');
+        Route::get('drainase/{tahun}/edit/{id}', 'edit')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.edit');
+        Route::post('drainase/{tahun}/store', 'store')->whereIn('tahun', ['2020', '2021', '2022']);
+        Route::delete('drainase/{tahun}/destroy/{id}', 'destroy')->whereIn('tahun', ['2020', '2021', '2022']);
+        Route::get('drainase/{tahun}/export', 'export')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.export');
+        Route::post('drainase/{tahun}/import', 'import')->whereIn('tahun', ['2020', '2021', '2022']);
+    });
+    // genangan
+    Route::controller(GenanganController::class)->group(function () {
+        Route::get('drainase/genangan', 'index')->name('genangan.index');
+        Route::get('drainase/genangan/create', 'create')->name('genangan.create');
+        Route::get('drainase/genangan/edit/{id}', 'edit')->name('genangan.edit');
+        Route::post('drainase/genangan/store', 'store');
+        Route::delete('drainase/genangan/destroy/{id}', 'destroy');
+        Route::post('drainase/genangan/import', 'import');
+        Route::get('drainase/genangan/export', 'export')->name('genangan.export');
+    });
+
     Route::group(['prefix' => 'datamaster'], function () {
-        // drainase
-        Route::controller(DrainaseController::class)->group(function () {
-            Route::get('drainase/{tahun}', 'index')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.index');
-            Route::get('drainase/{tahun}/create', 'create')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.create');
-            Route::get('drainase/{tahun}/edit/{id}', 'edit')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.edit');
-            Route::post('drainase/{tahun}/store', 'store')->whereIn('tahun', ['2020', '2021', '2022']);
-            Route::delete('drainase/{tahun}/destroy/{id}', 'destroy')->whereIn('tahun', ['2020', '2021', '2022']);
-            Route::get('drainase/{tahun}/export', 'export')->whereIn('tahun', ['2020', '2021', '2022'])->name('drainase.export');
-            Route::post('drainase/{tahun}/import', 'import')->whereIn('tahun', ['2020', '2021', '2022']);
-        });
-        // genangan
-        Route::controller(GenanganController::class)->group(function () {
-            Route::get('genangan', 'index')->name('genangan.index');
-            Route::get('genangan/create', 'create')->name('genangan.create');
-            Route::get('genangan/edit/{id}', 'edit')->name('genangan.edit');
-            Route::post('genangan/store', 'store');
-            Route::delete('genangan/destroy/{id}', 'destroy');
-            Route::post('genangan/import', 'import');
-            Route::get('genangan/export', 'export')->name('genangan.export');
-        });
+
         // jalan
         Route::controller(JalanController::class)->group(function () {
             Route::get('jalan', 'index')->name('jalan.index');
