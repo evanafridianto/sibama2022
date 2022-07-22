@@ -21,9 +21,8 @@
                        <div class="card">
                            <div class="card-header">
                                <div class="btn-list">
-                                   <a href="{{ route('drainase.create', $tahun) }}" class="btn btn-primary">Tambah Baru</a>
-                                   <button type="button" onclick="importXlsx({{ $tahun }})"
-                                       class="btn btn-info">Impor Xlsx</button>
+                                   <a href="{{ route('drainase2022.create') }}" class="btn btn-primary">Tambah Baru</a>
+                                   <button type="button" onclick="importXlsx()" class="btn btn-info">Impor Xlsx</button>
                                    <button type="button" onclick="exportXlsx()" class="btn btn-success">Ekspor
                                        Xlsx</button>
                                    <button type="button" onclick="reloadTable()" class="btn btn-secondary">Reload
@@ -57,5 +56,5 @@
                </div>
            </div>
        </div>
-       <script src="{{ asset('apps/drainase/index.js') }}"></script>
+       <script src="{{ asset('apps/drainase2022/index.js') }}"></script>
    @endsection

@@ -22,11 +22,9 @@
                     <li><a class="{{ Request::is('genangan/*') ? 'mm-active' : '' }}"
                             href="{{ route('genangan.index') }}">Titik Genangan</a></li>
                     <li><a class="{{ Request::is('drainase/2020/*') ? 'mm-active' : '' }}"
-                            href="{{ route('drainase.index', 2020) }}">2020</a></li>
-                    <li><a class="{{ Request::is('drainase/2021/*') ? 'mm-active' : '' }}"
-                            href="page-error-403.html">2021</a></li>
+                            href="{{ route('drainase2020.index') }}">2020 - 2021</a></li>
                     <li><a class="{{ Request::is('drainase/2022/*') ? 'mm-active' : '' }}"
-                            href="{{ route('drainase.index', 2022) }}">2022</a>
+                            href="{{ route('drainase2022.index') }}">2022</a>
                     </li>
                 </ul>
             </li>

@@ -21,18 +21,13 @@ $(function() {
                 searchable: false,
             },
             {
-                data: "kode_saluran",
-                name: "kode_saluran",
-                className: "align-middle",
-            },
-            {
                 data: "lokasi",
                 name: "lokasi",
                 className: "align-middle",
             },
             {
-                data: "sisi",
-                name: "sisi",
+                data: "jalur_jalan",
+                name: "jalur_jalan",
                 className: "align-middle",
             },
             {
@@ -67,8 +62,7 @@ function reloadTable() {
 }
 
 // destroy
-function destroy(tahun, id) {
-    console.log(tahun);
+function destroy(id) {
     alertify
         .confirm(
             "Konfirmasi!",
@@ -83,7 +77,7 @@ function destroy(tahun, id) {
                 });
 
                 $.ajax({
-                    url: "/drainase/2022/destroy/" + id,
+                    url: "/drainase/2020/destroy/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
@@ -117,7 +111,7 @@ function exportXlsx() {
     loader();
     $.ajax({
         type: "GET",
-        url: "/drainase/2022/export",
+        url: "/drainase/2020/export",
         xhrFields: {
             responseType: "blob",
         },
@@ -128,7 +122,7 @@ function exportXlsx() {
             });
             var link = document.createElement("a");
             link.href = window.URL.createObjectURL(blob);
-            link.download = "Drainase2022.xlsx";
+            link.download = "Drainase2020.xlsx";
             document.body.appendChild(link);
             link.click();
 
@@ -197,7 +191,7 @@ function importXlsx(tahun) {
 
         $.ajax({
             type: "POST",
-            url: `/drainase/${tahun}/import`,
+            url: "/drainase/2020/import",
             data: formData,
             contentType: false,
             processData: false,

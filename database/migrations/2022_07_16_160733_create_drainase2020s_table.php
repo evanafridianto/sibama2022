@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('file_foto');
             $table->string('nama_file_foto');
             $table->date('date');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

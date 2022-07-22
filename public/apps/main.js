@@ -90,3 +90,15 @@ function readURL(input) {
         }
     }
 }
+// img preview2
+function readURL2(input) {
+    for (var i = 0; i < input.files.length; i++) {
+        if (input.files[i]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $("#img-preview2").find("img").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[i]);
+        }
+    }
+}

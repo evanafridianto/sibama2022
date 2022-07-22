@@ -13,4 +13,9 @@ class Kategori extends Model
         'nama',
         'induk',
     ];
+
+    public function drainase2020s()
+    {
+        return $this->hasMany(Drainase2020::class, 'kondisi_fisik_id');
+    }
 }

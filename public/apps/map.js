@@ -33,7 +33,7 @@ $(function() {
         success: function(response) {
             for (i = 0; i < response.data.length; i++) {
                 var kmz = L.kmzLayer().addTo(map);
-                kmz.load(`/storage/kmz/${response.data[i].file_kmz}`);
+                kmz.load(`/storage/2022/kmz/${response.data[i].file_kmz}`);
             }
         },
         error: function(response) {
@@ -72,7 +72,7 @@ $(function() {
 
 function onEachFeature(feature, layer) {
     if (feature.properties) {
-        var content = `<h4>${feature.properties.nama_jalan}</h4><iframe frameborder="0"  allow="fullscreen;" src="//stream.cctv.malangkota.go.id:/WebRTCApp/play.html?name=${feature.properties.stream_id}" title="cctv" defer></iframe>`;
+        var content = `<h4>${feature.properties.nama_jalan}</h4><iframe  width="400" height="220"  frameborder="0"  allow="fullscreen;" src="//stream.cctv.malangkota.go.id:/WebRTCApp/play.html?name=${feature.properties.stream_id}" title="cctv" defer></iframe>`;
         layer.bindPopup(content, {
             maxHeight: 1200,
             maxWidth: 800,

@@ -15,11 +15,16 @@ class Jalan extends Model
         'kecamatan_id',
     ];
 
+    public function drainase2020s()
+    {
+        return $this->hasMany(Drainase2020::class);
+    }
 
     public function kecamatan()
     {
         return $this->belongsTo(Kecamatan::class);
     }
+
     public function kelurahan()
     {
         return $this->belongsTo(Kelurahan::class);
